@@ -67,9 +67,11 @@ function Utility(props) {
   };
   const handleUpperCase = () => {
     setText(text.toUpperCase());
+    props.showAlert("Converted to Upper Case", "success");
   };
   const handleLowerCase = () => {
     setText(text.toLowerCase());
+    props.showAlert("Converted to Lower Case", "success");
   };
   const handleCapitaleCase = () => {
     let sentence = text.toLowerCase();
@@ -78,16 +80,24 @@ function Utility(props) {
     );
 
     setText(finalSentence);
+    props.showAlert("Converted to Capital Case", "success");
   };
   const handleExtraSpaces = () => {
     let removed_extra_spaces_text = text.split(/[ ]+/);
     setText(removed_extra_spaces_text.join(" "));
+    props.showAlert("Extra-Spaces Cleared", "success");
   };
   const handleCopyText = () => {
     navigator.clipboard.writeText(text);
+    props.showAlert("Text Copied", "success");
   };
   const handleClearText = () => {
     setText("");
+    setCharacters(0);
+    setWords(0);
+    setParaCount(0);
+    setreadingTime(0);
+    props.showAlert("Text-Area Cleared", "success");
   };
 
   return (
@@ -98,7 +108,7 @@ function Utility(props) {
           className="form-label w-100 text-center"
         >
           <h1
-            className={`text-capitalize ${
+            className={`text-capitalize mt-4 ${
               props.theme === true ? "text-light" : "text-dark"
             }`}
           >
