@@ -96,22 +96,54 @@ function Utility(props) {
           htmlFor="exampleFormControlTextarea1"
           className="form-label w-100 text-center"
         >
-          <h1 className="text-capitalize">{props.obj.heading1}</h1>
+          <h1
+            className={`text-capitalize ${
+              props.theme === true ? "text-light" : "text-dark"
+            }`}
+          >
+            {props.obj.heading1}
+          </h1>
         </label>
         <textarea
-          className="form-control"
+          className={`form-control ${
+            props.theme === true ? "bg bg-secondary text-light" : ""
+          }`}
           id="exampleFormControlTextarea1"
           rows="10"
           value={text}
+          style={{ borderRadius: "1.5rem", padding: "1.5rem" }}
           onChange={handleOnChange}
+          placeholder="Enter Text Here"
         ></textarea>
       </div>
       <div className="my-2 w-75 m-auto">
         <ul className="list-group list-group-flush text-center">
-          <li className="list-group-item">Character Count: {characters}</li>
-          <li className="list-group-item">Word Count: {words}</li>
-          <li className="list-group-item">Paragraph Count: {paraCount}</li>
-          <li className="list-group-item">
+          <li
+            className={`list-group-item ${
+              props.theme === true ? "list-group-item-dark" : ""
+            }`}
+          >
+            Character Count: {characters}
+          </li>
+          <li
+            className={`list-group-item ${
+              props.theme === true ? "list-group-item-dark" : ""
+            }`}
+          >
+            Word Count: {words}
+          </li>
+          <li
+            className={`list-group-item ${
+              props.theme === true ? "list-group-item-dark" : ""
+            }`}
+          >
+            Paragraph Count: {paraCount}
+          </li>
+          <li
+            className={`list-group-item ${
+              props.theme === true ? "list-group-item-dark" : ""
+            }`}
+          >
             Approx. Reading Time: {readingTime} Min.
           </li>
         </ul>

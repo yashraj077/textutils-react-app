@@ -8,8 +8,12 @@ function About(props) {
 
   return (
     <div className="d-flex justify-content-center mt-5 mb-5 pt-5 pb-5">
-      <div className="card" style={aboutcss}>
-        {/* <img src={logo} className="card-img-top" alt="..." /> */}
+      <div
+        className={`card ${
+          props.theme === true ? "bg bg-dark text-light" : ""
+        }`}
+        style={aboutcss}
+      >
         <img src={logo} className="App-logo" alt="logo" />
         <div className="card-body">
           <h5 className="card-title text-center">About {props.obj.appName}</h5>

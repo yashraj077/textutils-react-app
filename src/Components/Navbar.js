@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 function Navbar(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        className={`navbar navbar-expand-lg navbar-${
+          props.theme === true ? "dark" : "light"
+        } bg-${props.theme === true ? "dark " : "light"}`}
+      >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             {props.obj.appName}
@@ -23,7 +27,7 @@ function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className={`nav-link active`} aria-current="page" to="/">
                   Home
                 </Link>
               </li>
@@ -37,6 +41,24 @@ function Navbar(props) {
                 </Link>
               </li>
             </ul>
+            <div className="d-flex">
+              <div className="form-check form-switch">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  id="flexSwitchCheckDefault"
+                  onClick={props.toggleTheme}
+                />
+                <label
+                  className={`form-check-label ${
+                    props.theme === true ? "text-light" : "text-dark"
+                  }`}
+                  htmlFor="flexSwitchCheckDefault"
+                >
+                  {props.theme === true ? "Light Theme" : "Dark Theme"}
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
