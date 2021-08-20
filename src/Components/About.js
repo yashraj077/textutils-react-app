@@ -2,6 +2,7 @@ import logo from "../logo.svg";
 import React from "react";
 
 function About(props) {
+  document.title = "About TextUtils";
   let aboutcss = {
     width: "18rem",
   };

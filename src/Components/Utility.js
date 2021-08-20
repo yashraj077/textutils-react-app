@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 function Utility(props) {
+  document.title = "TextUtils";
   const [text, setText] = useState("");
   const [characters, setCharacters] = useState(0);
   const [words, setWords] = useState(0);
